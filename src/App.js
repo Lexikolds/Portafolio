@@ -1,24 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, Code2, Terminal, Database, Server, Cpu, Monitor, Wrench, ChevronRight, Calendar } from 'lucide-react';
+import { Mail, Phone, MapPin, Code2, Terminal, Database, Server, Cpu, Monitor, Github, Linkedin, ExternalLink, ChevronRight, Calendar, Briefcase } from 'lucide-react';
 import './App.css';
 
 function App() {
   const [activeTab, setActiveTab] = useState('inicio');
   const [isLoaded, setIsLoaded] = useState(false);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     setTimeout(() => setIsLoaded(true), 100);
-
-    const handleMouseMove = (e) => {
-      setCursorPosition({
-        x: e.clientX,
-        y: e.clientY
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   const experiences = [
@@ -36,8 +25,7 @@ function App() {
         'Mantenimiento preventivo y correctivo de equipos',
         'Gestión de tickets y atención al cliente',
         'Configuración de sistemas operativos y aplicaciones'
-      ],
-      color: '#00d4ff'
+      ]
     },
     {
       id: 2,
@@ -51,12 +39,9 @@ function App() {
         'Aprovisionamiento de sistemas con imágenes corporativas personalizadas',
         'Integración de equipos al dominio corporativo',
         'Configuración de conectividad de red (LAN/Wi-Fi)',
-        'Gestión de dominios y redes para garantizar conectividad',
         'Instalación de drivers específicos y aplicaciones críticas',
-        'Soporte preventivo y correctivo de hardware',
-        'Entrega y validación con usuario final'
-      ],
-      color: '#22c55e'
+        'Soporte preventivo y correctivo de hardware'
+      ]
     },
     {
       id: 3,
@@ -71,10 +56,8 @@ function App() {
         'Creación y optimización de APIs',
         'Integración de bases de datos',
         'Implementación de buenas prácticas de programación',
-        'Trabajo colaborativo con equipos de frontend',
-        'Planificación de proyectos y resolución de incidencias técnicas'
-      ],
-      color: '#a855f7'
+        'Trabajo colaborativo con equipos de frontend'
+      ]
     },
     {
       id: 4,
@@ -90,37 +73,31 @@ function App() {
         'Administración en cPanel',
         'Instalación y configuración de certificados SSL',
         'Configuración de correos corporativos',
-        'Manejo de sistema ERP Odoo',
-        'Soporte remoto y administración de sistemas'
-      ],
-      color: '#f59e0b'
+        'Manejo de sistema ERP Odoo'
+      ]
     }
   ];
 
   const skills = [
     {
-      category: 'Lenguajes de Programación',
+      category: 'Lenguajes',
       icon: Code2,
-      items: ['Python', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3'],
-      color: '#00d4ff'
+      items: ['Python', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3']
     },
     {
-      category: 'Frameworks & Librerías',
+      category: 'Frameworks',
       icon: Terminal,
-      items: ['React', 'Node.js', 'Django', 'Express'],
-      color: '#22c55e'
+      items: ['React', 'Node.js', 'Django', 'Express']
     },
     {
       category: 'Bases de Datos',
       icon: Database,
-      items: ['MySQL', 'SQL Server', 'MongoDB'],
-      color: '#a855f7'
+      items: ['MySQL', 'SQL Server', 'MongoDB']
     },
     {
-      category: 'Herramientas & Sistemas',
+      category: 'Herramientas',
       icon: Server,
-      items: ['Git', 'cPanel', 'Odoo ERP', 'Windows Server'],
-      color: '#f59e0b'
+      items: ['Git', 'cPanel', 'Odoo ERP', 'Windows Server']
     }
   ];
 
@@ -142,163 +119,181 @@ function App() {
   ];
 
   const certifications = [
-    'Programación de Software (Python / JavaScript / HTML / CSS) - Duoc UC',
-    'Análisis y desarrollo de modelos de datos (Django / SQL Server / MySQL) - Duoc UC',
-    'Calidad de software - Duoc UC'
+    'Programación de Software (Python / JavaScript / HTML / CSS)',
+    'Análisis y desarrollo de modelos de datos (Django / SQL Server / MySQL)',
+    'Calidad de software'
   ];
 
   return (
-    <div className="portfolio-v3" style={{
-      '--cursor-x': `${cursorPosition.x}px`,
-      '--cursor-y': `${cursorPosition.y}px`
-    }}>
-      <div className="grid-bg"></div>
-
-      <div className="main-container">
-        {/* Header */}
-        <header className="header" style={{
-          opacity: isLoaded ? 1 : 0,
-          transform: `translateY(${isLoaded ? 0 : -50}px)`
-        }}>
-          <h1 className="main-title">Matias Villalobos</h1>
-          <p className="main-subtitle">Estudiante Informático</p>
-          <p className="main-role">&gt; Desarrollador & Soporte Técnico Especializado</p>
-        </header>
-
-        {/* Navigation */}
-        <div className="nav-container" style={{
-          opacity: isLoaded ? 1 : 0,
-          transform: `translateY(${isLoaded ? 0 : 20}px)`
-        }}>
-          <div className="nav-tabs">
-            <button
-              className={`nav-tab ${activeTab === 'inicio' ? 'active' : ''}`}
-              onClick={() => setActiveTab('inicio')}
+    <div className="app">
+      {/* Header */}
+      <header className={`header ${isLoaded ? 'loaded' : ''}`}>
+        <div className="header-content">
+          <div className="title-wrapper">
+            <h1 className="main-title">Matias Villalobos</h1>
+            <div className="title-line"></div>
+          </div>
+          <p className="subtitle">Estudiante de Ingeniería en Informática</p>
+          <p className="role">Desarrollador | Soporte Técnico Especializado</p>
+          
+          <div className="social-links">
+            <a 
+              href="https://github.com/Lexikolds" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-link"
+              aria-label="GitHub"
             >
-              inicio
-            </button>
-            <button
-              className={`nav-tab ${activeTab === 'experiencia' ? 'active' : ''}`}
-              onClick={() => setActiveTab('experiencia')}
+              <Github size={20} />
+              <span>GitHub</span>
+            </a>
+            <a 
+              href="https://linkedin.com/in/matias-villalobos" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-link"
+              aria-label="LinkedIn"
             >
-              experiencia
-            </button>
-            <button
-              className={`nav-tab ${activeTab === 'habilidades' ? 'active' : ''}`}
-              onClick={() => setActiveTab('habilidades')}
-            >
-              habilidades
-            </button>
-            <button
-              className={`nav-tab ${activeTab === 'educacion' ? 'active' : ''}`}
-              onClick={() => setActiveTab('educacion')}
-            >
-              educación
-            </button>
+              <Linkedin size={20} />
+              <span>LinkedIn</span>
+            </a>
           </div>
         </div>
+      </header>
 
-        {/* Content */}
-        <div className="content" style={{
-          opacity: isLoaded ? 1 : 0,
-          transform: `translateY(${isLoaded ? 0 : 30}px)`
-        }}>
-          {/* Inicio Tab */}
-          {activeTab === 'inicio' && (
-            <div className="inicio-section">
-              <div className="info-box">
-                <div className="box-icon">
-                  <Terminal size={28} color="#ffffff" />
+      {/* Navigation */}
+      <nav className={`nav ${isLoaded ? 'loaded' : ''}`}>
+        <div className="nav-container">
+          <button
+            className={`nav-btn ${activeTab === 'inicio' ? 'active' : ''}`}
+            onClick={() => setActiveTab('inicio')}
+          >
+            Inicio
+          </button>
+          <button
+            className={`nav-btn ${activeTab === 'experiencia' ? 'active' : ''}`}
+            onClick={() => setActiveTab('experiencia')}
+          >
+            Experiencia
+          </button>
+          <button
+            className={`nav-btn ${activeTab === 'habilidades' ? 'active' : ''}`}
+            onClick={() => setActiveTab('habilidades')}
+          >
+            Habilidades
+          </button>
+          <button
+            className={`nav-btn ${activeTab === 'educacion' ? 'active' : ''}`}
+            onClick={() => setActiveTab('educacion')}
+          >
+            Educación
+          </button>
+        </div>
+      </nav>
+
+      {/* Main Content */}
+      <main className={`main-content ${isLoaded ? 'loaded' : ''}`}>
+        {/* Inicio Tab */}
+        {activeTab === 'inicio' && (
+          <div className="tab-content">
+            <section className="about-section">
+              <div className="section-card">
+                <div className="card-header">
+                  <Terminal className="card-icon" size={24} />
+                  <h2>Sobre Mí</h2>
                 </div>
-                <h2 className="box-title">Sobre Mí</h2>
-                <p className="box-content">
-                  Estudiante capacitado en estudios de informática y cargos de soporte técnico y backoffice, 
-                  con experiencia en Soporte Técnico, BackOffice y desarrollo, buscando nuevas oportunidades 
-                  y experiencias relacionadas al área de la programación y tecnología.
+                <p className="card-text">
+                  Estudiante capacitado en informática con experiencia en soporte técnico, backoffice y desarrollo. 
+                  Enfocado en la programación y tecnología, buscando constantemente nuevas oportunidades para 
+                  crecer profesionalmente en el área IT.
                 </p>
               </div>
 
-              <div className="info-box">
-                <div className="box-icon">
-                  <Mail size={28} color="#ffffff" />
+              <div className="section-card">
+                <div className="card-header">
+                  <Mail className="card-icon" size={24} />
+                  <h2>Contacto</h2>
                 </div>
-                <h2 className="box-title">Contacto</h2>
-                <div className="box-content">
+                <div className="contact-list">
                   <div className="contact-item">
                     <Mail size={18} />
-                    <span>matiasvillalobosperez02@gmail.com</span>
+                    <a href="mailto:matiasvillalobosperez02@gmail.com">
+                      matiasvillalobosperez02@gmail.com
+                    </a>
                   </div>
                   <div className="contact-item">
                     <Phone size={18} />
-                    <span>+569 7723 1057</span>
+                    <a href="tel:+56977231057">+569 7723 1057</a>
                   </div>
                   <div className="contact-item">
                     <MapPin size={18} />
-                    <span>La Florida, Santiago</span>
+                    <span>La Florida, Santiago, Chile</span>
                   </div>
                 </div>
               </div>
 
-              <div className="info-box">
-                <div className="box-icon">
-                  <Wrench size={28} color="#ffffff" />
+              <div className="section-card">
+                <div className="card-header">
+                  <Briefcase className="card-icon" size={24} />
+                  <h2>Certificaciones</h2>
                 </div>
-                <h2 className="box-title">Certificaciones</h2>
-                <div className="box-content">
+                <ul className="cert-list">
                   {certifications.map((cert, index) => (
-                    <div key={index} className="cert-item">
+                    <li key={index} className="cert-item">
                       <ChevronRight size={16} />
                       <span>{cert}</span>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
-            </div>
-          )}
+            </section>
+          </div>
+        )}
 
-          {/* Experiencia Tab */}
-          {activeTab === 'experiencia' && (
-            <div className="experience-grid">
+        {/* Experiencia Tab */}
+        {activeTab === 'experiencia' && (
+          <div className="tab-content">
+            <div className="experience-list">
               {experiences.map((exp) => (
-                <div key={exp.id} className="exp-card">
+                <article key={exp.id} className="exp-card">
                   <div className="exp-header">
-                    <div className="exp-title-group">
+                    <div className="exp-title-section">
                       <h3 className="exp-company">{exp.company}</h3>
                       <p className="exp-role">{exp.role}</p>
                     </div>
                     <div className="exp-meta">
                       <div className="exp-period">
                         <Calendar size={16} />
-                        {exp.period} · {exp.duration}
+                        <span>{exp.period}</span>
                       </div>
-                      {exp.current && <span className="exp-current">Actual</span>}
+                      {exp.current && <span className="badge-current">Actual</span>}
                     </div>
                   </div>
                   <p className="exp-description">{exp.description}</p>
-                  <ul className="exp-highlights">
+                  <ul className="exp-list">
                     {exp.highlights.map((highlight, index) => (
                       <li key={index}>{highlight}</li>
                     ))}
                   </ul>
-                </div>
+                </article>
               ))}
             </div>
-          )}
+          </div>
+        )}
 
-          {/* Habilidades Tab */}
-          {activeTab === 'habilidades' && (
+        {/* Habilidades Tab */}
+        {activeTab === 'habilidades' && (
+          <div className="tab-content">
             <div className="skills-grid">
               {skills.map((skillGroup, index) => {
                 const Icon = skillGroup.icon;
                 return (
                   <div key={index} className="skill-card">
                     <div className="skill-header">
-                      <div className="skill-icon">
-                        <Icon size={24} color="#ffffff" />
-                      </div>
-                      <h3 className="skill-category">{skillGroup.category}</h3>
+                      <Icon className="skill-icon" size={24} />
+                      <h3>{skillGroup.category}</h3>
                     </div>
-                    <div className="skill-items">
+                    <div className="skill-tags">
                       {skillGroup.items.map((skill, idx) => (
                         <span key={idx} className="skill-tag">{skill}</span>
                       ))}
@@ -307,39 +302,46 @@ function App() {
                 );
               })}
             </div>
-          )}
+          </div>
+        )}
 
-          {/* Educación Tab */}
-          {activeTab === 'educacion' && (
-            <div className="education-grid">
+        {/* Educación Tab */}
+        {activeTab === 'educacion' && (
+          <div className="tab-content">
+            <div className="education-list">
               {education.map((edu, index) => {
                 const Icon = edu.icon;
                 return (
-                  <div key={index} className="edu-card">
-                    <div className="edu-icon-box">
-                      <Icon size={32} color="#ffffff" />
+                  <article key={index} className="edu-card">
+                    <div className="edu-icon-wrapper">
+                      <Icon size={28} />
                     </div>
                     <div className="edu-content">
                       <h3 className="edu-institution">{edu.institution}</h3>
                       <p className="edu-degree">{edu.degree}</p>
-                      <div className="edu-period">
-                        <Calendar size={16} />
-                        {edu.period}
-                        <span className="edu-status">{edu.status}</span>
+                      <div className="edu-footer">
+                        <div className="edu-period">
+                          <Calendar size={16} />
+                          <span>{edu.period}</span>
+                        </div>
+                        <span className={`badge-status ${edu.status === 'En curso' ? 'active' : ''}`}>
+                          {edu.status}
+                        </span>
                       </div>
                     </div>
-                  </div>
+                  </article>
                 );
               })}
             </div>
-          )}
-        </div>
+          </div>
+        )}
+      </main>
 
-        {/* Footer */}
-        <footer className="footer">
-          <p>© 2026 Matias Villalobos Dev | Diseñado con React</p>
-        </footer>
-      </div>
+      {/* Footer */}
+      <footer className="footer">
+        <p>© 2026 Matias Villalobos</p>
+        <p className="footer-tech">Desarrollado con React</p>
+      </footer>
     </div>
   );
 }
