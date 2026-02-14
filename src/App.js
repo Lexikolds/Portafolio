@@ -14,8 +14,7 @@ function App() {
       id: 1,
       company: 'Gocar Ltda.',
       role: 'Especialista en soporte técnico',
-      period: 'Dic. 2025 - Actualidad',
-      duration: '3 meses',
+      period: '2025 - Actualidad',
       current: true,
       description: 'Soporte técnico especializado en la empresa Gocar Ltda.',
       highlights: [
@@ -28,9 +27,26 @@ function App() {
     },
     {
       id: 2,
+      company: 'Sonda / Agrosuper',
+      role: 'IT Support Analyst & Operations Backup',
+      period: 'Actualidad',
+      duration: 'Proyecto actual',
+      current: true,
+      description: 'Gestión centralizada de operaciones TI para sucursales de Agrosuper a nivel nacional. Orquestación de incidentes mediante Aranda Service Desk, auditoría técnica de reportes de terreno y aseguramiento de calidad (QA) en el cierre de tickets.',
+      highlights: [
+        'Gestión centralizada de operaciones TI para sucursales a nivel nacional',
+        'Orquestación de incidentes mediante Aranda Service Desk',
+        'Auditoría técnica de reportes de terreno',
+        'Aseguramiento de calidad (QA) en el cierre de tickets',
+        'Staging y aprovisionamiento de hardware (maquetación y mantenimiento)',
+        'Garantizar la continuidad operativa en regiones'
+      ]
+    },
+    {
+      id: 3,
       company: 'Banco Falabella',
       role: 'Soporte TI Microinformático',
-      period: 'Ene. 2026 - Feb. 2026',
+      period: '2026 - 2026',
       duration: '2 meses',
       current: false,
       description: 'Provisión y despliegue técnico de estaciones de trabajo en entorno bancario.',
@@ -43,10 +59,10 @@ function App() {
       ]
     },
     {
-      id: 3,
+      id: 4,
       company: 'Psys',
       role: 'Programador Jr',
-      period: 'Oct. 2025 - Dic. 2025',
+      period: '2025 - 2025',
       duration: '3 meses',
       current: false,
       description: 'Desarrollo Backend Jr. con Node.js, TypeScript y tecnologías modernas.',
@@ -59,10 +75,10 @@ function App() {
       ]
     },
     {
-      id: 4,
+      id: 5,
       company: 'Nexxos Chile',
       role: 'Soporte Técnico',
-      period: 'Dic. 2024 - Dic. 2025',
+      period: '2024 - 2025',
       duration: '1 año 1 mes',
       current: false,
       description: 'Atención técnica a clientes internos y externos, gestión de incidencias tecnológicas.',
@@ -143,7 +159,7 @@ function App() {
               <span>GitHub</span>
             </a>
             <a 
-              href="https://www.linkedin.com/in/matias-benjamin-villalobos-perez-0166a8292/" 
+              href="https://linkedin.com/in/matias-villalobos" 
               target="_blank" 
               rel="noopener noreferrer"
               className="social-link"
