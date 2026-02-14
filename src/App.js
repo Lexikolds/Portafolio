@@ -28,7 +28,7 @@ function App() {
     {
       id: 2,
       company: 'Sonda / Agrosuper',
-      role: 'IT Support Analyst & Operations Backup',
+      role: 'Analista de soporte de TI y respaldo de operaciones',
       period: 'Actualidad',
       duration: 'Proyecto actual',
       current: true,
