@@ -159,7 +159,7 @@ function App() {
               <span>GitHub</span>
             </a>
             <a 
-              href="https://www.linkedin.com/in/matias-benjamin-villalobos-perez-0166a8292/" 
+              href="a" 
               target="_blank" 
               rel="noopener noreferrer"
               className="social-link"
