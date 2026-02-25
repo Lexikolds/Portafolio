@@ -108,7 +108,7 @@ function App() {
     },
     {
       category: 'Herramientas',
-      items: ['Git', 'cPanel', 'Odoo ERP', 'Windows Server']
+      items: ['Git', 'cPanel', 'Odoo ERP', 'Windows Server', 'Aranda Service Desk']
     }
   ];
 
