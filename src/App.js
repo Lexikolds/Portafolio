@@ -12,9 +12,30 @@ function App() {
   const experiences = [
     {
       id: 1,
+      company: 'Sonda / Bolsa de Comercio de Santiago',
+      role: 'Especialista TI en Infraestructura y Continuidad Operativa',
+      period: 'Actualidad',
+      duration: 'Proyecto actual',
+      current: true,
+      description: 'Especialista en entornos de misión crítica y alta disponibilidad, responsable de garantizar la continuidad operativa de la infraestructura tecnológica en la Bolsa de Valores (nuam). Experto en resolución de incidentes complejos mediante soporte técnico avanzado, administración de sistemas y diagnóstico de hardware a nivel de componentes.',
+      highlights: [
+        'Soporte N1/N2 especializado en plataformas de trading y sistemas corporativos críticos',
+        'Gestión de aplicativos críticos: BCS Desktop (Sebra) con configuraciones avanzadas de seguridad en Java',
+        'Administración de conectividad ODBC para bases de datos HISBAS y RUEBAS en SQL Server',
+        'Gestión de identidades y accesos (IAM) mediante Active Directory y Azure AD',
+        'Administración de sesiones seguras mediante BeyondTrust (PAM) con WinSCP y PuTTY',
+        'Troubleshooting avanzado de red LAN/VoIP y administración de switching Cisco',
+        'Staging corporativo mediante Acronis y gestión de imágenes en estaciones de trabajo',
+        'Diagnóstico experto de hardware con análisis termográfico a nivel de componente',
+        'Gestión de tickets mediante Jira y Aranda con cumplimiento estricto de SLAs'
+      ]
+    },
+    {
+      id: 2,
       company: 'Gocar Ltda.',
       role: 'Especialista en soporte técnico',
       period: '2025 - Actualidad',
+      duration: '3 meses',
       current: true,
       description: 'Soporte técnico especializado en la empresa Gocar Ltda.',
       highlights: [
@@ -26,12 +47,12 @@ function App() {
       ]
     },
     {
-      id: 2,
+      id: 3,
       company: 'Sonda / Agrosuper',
-      role: 'Analista de soporte de TI y respaldo de operaciones',
-      period: 'Actualidad',
-      duration: 'Proyecto actual',
-      current: true,
+      role: 'Especialista TI en Infraestructura y Continuidad Operativa',
+      period: '2026 - 2026',
+      duration: 'Proyecto finalizado',
+      current: false,
       description: 'Gestión centralizada de operaciones TI para sucursales de Agrosuper a nivel nacional. Orquestación de incidentes mediante Aranda Service Desk, auditoría técnica de reportes de terreno y aseguramiento de calidad (QA) en el cierre de tickets.',
       highlights: [
         'Gestión centralizada de operaciones TI para sucursales a nivel nacional',
@@ -43,7 +64,7 @@ function App() {
       ]
     },
     {
-      id: 3,
+      id: 4,
       company: 'Banco Falabella',
       role: 'Soporte TI Microinformático',
       period: '2026 - 2026',
@@ -59,7 +80,7 @@ function App() {
       ]
     },
     {
-      id: 4,
+      id: 5,
       company: 'Psys',
       role: 'Programador Jr',
       period: '2025 - 2025',
@@ -75,7 +96,7 @@ function App() {
       ]
     },
     {
-      id: 5,
+      id: 6,
       company: 'Nexxos Chile',
       role: 'Soporte Técnico',
       period: '2024 - 2025',
@@ -108,7 +129,11 @@ function App() {
     },
     {
       category: 'Herramientas',
-      items: ['Git', 'cPanel', 'Odoo ERP', 'Windows Server', 'Aranda Service Desk']
+      items: ['Git', 'cPanel', 'Odoo ERP', 'Aranda', 'Windows Server', 'Jira']
+    },
+    {
+      category: 'Infraestructura & Seguridad',
+      items: ['Active Directory', 'Azure AD', 'BeyondTrust', 'Acronis', 'Cisco Switching']
     }
   ];
 
@@ -143,7 +168,7 @@ function App() {
             <div className="title-line"></div>
           </div>
           <p className="subtitle">Estudiante de Ingeniería en Informática</p>
-          <p className="role">Desarrollador | Soporte Técnico Especializado</p>
+          <p className="role">Especialista TI en Infraestructura | Desarrollador Fullstack</p>
           
           <div className="social-links">
             <a 
@@ -159,7 +184,7 @@ function App() {
               <span>GitHub</span>
             </a>
             <a 
-              href="https://www.linkedin.com/in/matias-benjamin-villalobos-perez-0166a8292/" 
+              href="https://linkedin.com/in/matias-villalobos" 
               target="_blank" 
               rel="noopener noreferrer"
               className="social-link"
@@ -216,9 +241,10 @@ function App() {
                   <h2>Sobre Mí</h2>
                 </div>
                 <p className="card-text">
-                  Estudiante capacitado en informática con experiencia en soporte técnico, backoffice y desarrollo. 
-                  Enfocado en la programación y tecnología, buscando constantemente nuevas oportunidades para 
-                  crecer profesionalmente en el área IT.
+                  Especialista TI en entornos de misión crítica con experiencia en infraestructura, continuidad operativa 
+                  y desarrollo de software. Enfocado en garantizar alta disponibilidad de sistemas financieros y plataformas 
+                  críticas mediante soporte técnico avanzado, administración de infraestructura y diagnóstico de hardware a 
+                  nivel de componentes. Estudiante de Ingeniería en Informática con sólida formación en programación y tecnologías de la información.
                 </p>
               </div>
 
@@ -233,10 +259,6 @@ function App() {
                     <a href="mailto:matiasvillalobosperez02@gmail.com">
                       matiasvillalobosperez02@gmail.com
                     </a>
-                  </div>
-                  <div className="contact-item">
-                    <span>📱</span>
-                    <a href="tel:+56977231057">+569 7723 1057</a>
                   </div>
                   <div className="contact-item">
                     <span>📍</span>
