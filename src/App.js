@@ -128,7 +128,7 @@ export default function App() {
   const [visible, setVisible] = useState(false);
   const [activeTab, setActiveTab] = useState('inicio');
   const [typedCmd, setTypedCmd] = useState('');
-  const fullCmd = 'cat portafolio.json';
+  const fullCmd = 'MatiDev / Technical Support / Full-Stack Developer ';
 
   useEffect(() => {
     if (!booting) {
