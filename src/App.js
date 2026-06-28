@@ -52,22 +52,22 @@ function MatrixRain() {
 }
 
 // ─── Boot Sequence Component ──────────────────────────────────────────────────
+const bootLines = [
+  { text: 'BIOS v2.4.1 — Inicializando sistema...', delay: 0 },
+  { text: '> Cargando módulos del kernel... [OK]', delay: 300 },
+  { text: '> Montando sistema de archivos... [OK]', delay: 600 },
+  { text: '> Estableciendo conexión segura... [OK]', delay: 900 },
+  { text: '> Descifrando datos del portafolio... [OK]', delay: 1200 },
+  { text: '> Autenticando usuario: MATIAS_VILLALOBOS... [OK]', delay: 1500 },
+  { text: '> Nivel de acceso: ESPECIALISTA_TI [CONCEDIDO]', delay: 1800 },
+  { text: '> Iniciando interfaz...', delay: 2100 },
+  { text: '█████████████████████ 100%', delay: 2400 },
+  { text: 'SISTEMA LISTO.', delay: 2700 },
+];
+
 function BootSequence({ onComplete }) {
   const [lines, setLines] = useState([]);
   const [done, setDone] = useState(false);
-
-  const bootLines = [
-    { text: 'BIOS v2.4.1 — Inicializando sistema...', delay: 0 },
-    { text: '> Cargando módulos del kernel... [OK]', delay: 300 },
-    { text: '> Montando sistema de archivos... [OK]', delay: 600 },
-    { text: '> Estableciendo conexión segura... [OK]', delay: 900 },
-    { text: '> Descifrando datos del portafolio... [OK]', delay: 1200 },
-    { text: '> Autenticando usuario: MATIAS_VILLALOBOS... [OK]', delay: 1500 },
-    { text: '> Nivel de acceso: ESPECIALISTA_TI [CONCEDIDO]', delay: 1800 },
-    { text: '> Iniciando interfaz...', delay: 2100 },
-    { text: '█████████████████████ 100%', delay: 2400 },
-    { text: 'SISTEMA LISTO.', delay: 2700 },
-  ];
 
   useEffect(() => {
     bootLines.forEach(({ text, delay }) => {
@@ -79,7 +79,7 @@ function BootSequence({ onComplete }) {
       setDone(true);
       setTimeout(onComplete, 600);
     }, 3200);
-  }, []);
+  }, [onComplete]);
 
   return (
     <div className={`boot-screen ${done ? 'boot-fade' : ''}`}>
@@ -128,7 +128,7 @@ export default function App() {
   const [visible, setVisible] = useState(false);
   const [activeTab, setActiveTab] = useState('inicio');
   const [typedCmd, setTypedCmd] = useState('');
-  const fullCmd = 'MatiDev / Technical Support / Full-Stack Developer ';
+  const fullCmd = 'cat portafolio.json';
 
   useEffect(() => {
     if (!booting) {
@@ -153,12 +153,15 @@ export default function App() {
       current: true,
       description: 'Entorno de misión crítica y alta disponibilidad. Responsable de garantizar la continuidad operativa de la infraestructura tecnológica en la Bolsa de Valores (nuam).',
       highlights: [
+        'GESTIÓN DE IDENTIDADES, ACCESOS Y SERVICIOS DE DIRECTORIO (IAM)',
         'Administración de Active Directory: gestión avanzada de objetos de dominio, grupos de seguridad, delegación de privilegios y despliegue de GPOs para hardening de políticas locales',
         'Troubleshooting Avanzado de Autenticación: diagnóstico y resolución de bloqueos de usuarios mediante LockoutStatus, localizando fallos de autenticación a través de los controladores de dominio (DCs)',
         'Migración de Objetos e Identidades Interdominio: planificación y ejecución de migraciones de perfiles de usuario y estaciones de trabajo entre dominios corporativos, garantizando integridad de datos y persistencia de configuraciones',
         'Gestión de Endpoints a Nivel de Sistema: configuración local, habilitación de cuentas de servicio y control de listas de acceso (ACLs) mediante Administrador de Equipos',
+        'REDES, CONECTIVIDAD DE DATOS Y SEGURIDAD PERIMETRAL',
         'Despliegue y Aprovisionamiento VPN: configuración e instalación del cliente Palo Alto GlobalProtect, asegurando tunelización y canales cifrados de extremo a extremo',
         'Soporte de Infraestructura de Red L2/L3: monitoreo operacional, diagnóstico de fallas de conectividad, gestión de direccionamiento IP y resolución de incidencias en capas de acceso y distribución',
+        'SOPORTE DE PLATAFORMAS FINANCIERAS TRANSFRONTERIZAS Y CIBERSEGURIDAD',
         'Soporte de Continuidad Operativa a SEBRA HT: soporte técnico N2 a la plataforma de negociación de renta fija transfronteriza entre Chile y Perú, garantizando estabilidad y disponibilidad del mercado integrado',
         'Aseguramiento de Entornos de Ejecución y Criptografía SSL: implementación y actualización de certificados digitales en Keystores, asegurando conexiones TLS/SSL cifradas hacia plataformas transaccionales del core financiero',
         'Integración y Soporte de Hardware Zebra: aprovisionamiento, calibración de sensores, direccionamiento lógico y mantenimiento de terminales de impresión térmica Zebra dentro de la red corporativa'
@@ -288,7 +291,7 @@ export default function App() {
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 github
               </a>
-              <a href="https://www.linkedin.com/in/matias-benjamin-villalobos-perez-0166a8292/" target="_blank" rel="noopener noreferrer" className="hdr-link">
+              <a href="https://linkedin.com/in/matias-villalobos" target="_blank" rel="noopener noreferrer" className="hdr-link">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 linkedin
               </a>
@@ -317,7 +320,6 @@ export default function App() {
             </div>          </div>
         </header>
 
-        {/* ── NAV ────────────────────────────────── */}
         <nav className="nav">
           <div className="nav-inner">
             {tabs.map(tab => (
@@ -333,10 +335,7 @@ export default function App() {
           </div>
         </nav>
 
-        {/* ── CONTENT ────────────────────────────── */}
         <main className="main">
-
-          {/* INICIO ─────────────────────────── */}
           {activeTab === 'inicio' && (
             <div className="tab-pane">
               <div className="section-header">
@@ -344,7 +343,6 @@ export default function App() {
               </div>
 
               <div className="cards-grid">
-                {/* About */}
                 <div className="card card--glow">
                   <div className="card-head">
                     <span className="card-head-icon">{'>'}</span>
@@ -352,7 +350,10 @@ export default function App() {
                     <span className="card-head-line" />
                   </div>
                   <p className="card-body">
-                    Soy Especialista de Soporte TI Nivel 2, enfocado en la administración de infraestructura tecnológica, conectividad segura y continuidad operativa en entornos corporativos de alta exigencia y el sector financiero.
+                    Especialista TI en entornos de misión crítica con experiencia en infraestructura,
+                    continuidad operativa y desarrollo de software. Responsable de garantizar la alta disponibilidad
+                    de sistemas financieros y plataformas críticas mediante soporte avanzado, administración de
+                    infraestructura y diagnóstico de hardware a nivel de componentes.
                   </p>
                   <div className="card-footer">
                     <span className="tag tag--cyan">ESTADO: ACTIVO</span>
@@ -360,7 +361,6 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Contact */}
                 <div className="card card--glow">
                   <div className="card-head">
                     <span className="card-head-icon">{'>'}</span>
@@ -376,14 +376,23 @@ export default function App() {
                       </a>
                     </div>
                     <div className="contact-row">
+                      <span className="contact-key">teléfono</span>
+                      <span className="contact-sep">=</span>
+                      <a href="tel:+56977231057" className="contact-val">+569 7723 1057</a>
+                    </div>
+                    <div className="contact-row">
                       <span className="contact-key">ubicación</span>
                       <span className="contact-sep">=</span>
                       <span className="contact-val">La Florida, Santiago, CL</span>
                     </div>
+                    <div className="contact-row">
+                      <span className="contact-key">github</span>
+                      <span className="contact-sep">=</span>
+                      <a href="https://github.com/Lexikolds" target="_blank" rel="noopener noreferrer" className="contact-val">Lexikolds</a>
+                    </div>
                   </div>
                 </div>
 
-                {/* Certs */}
                 <div className="card card--glow">
                   <div className="card-head">
                     <span className="card-head-icon">{'>'}</span>
@@ -407,7 +416,6 @@ export default function App() {
             </div>
           )}
 
-          {/* EXPERIENCIA ──────────────────────── */}
           {activeTab === 'experiencia' && (
             <div className="tab-pane">
               <TerminalLine prompt="root@mv:~#" command=" git log --all --experiencia" />
@@ -448,7 +456,6 @@ export default function App() {
             </div>
           )}
 
-          {/* HABILIDADES ─────────────────────── */}
           {activeTab === 'habilidades' && (
             <div className="tab-pane">
               <TerminalLine prompt="root@mv:~#" command=" ./habilidades.sh --listar-todas" />
@@ -472,7 +479,6 @@ export default function App() {
             </div>
           )}
 
-          {/* EDUCACION ───────────────────────── */}
           {activeTab === 'educacion' && (
             <div className="tab-pane">
               <TerminalLine prompt="root@mv:~#" command=" SELECT * FROM educacion;" />
@@ -498,7 +504,6 @@ export default function App() {
 
         </main>
 
-        {/* ── FOOTER ─────────────────────────────── */}
         <footer className="footer">
           <span>© 2026 Matias Villalobos</span>
           <span className="footer-sep">//</span>
