@@ -752,7 +752,7 @@ body {
   color: var(--grey);
 }
 
-.footer-sep { color: var(--border); }
+.footer-sep { color: var(--green); }
 .footer-green { color: var(--green); }
 
 /* ── RESPONSIVE ────────────────────────────────────────────────── */
